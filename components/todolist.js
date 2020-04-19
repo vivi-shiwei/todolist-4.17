@@ -1,37 +1,21 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useState} from 'react';
+
 
 function Todolist() {
-    const textInput = useRef();
+    const [textInput,settextInput] = useState("");
     const [list, setlist] = useState([]);
-    const [finishList, setfinishList] = useState([]);
-    const locsetItem = (key, value) => {
-        localStorage.setItem(key, JSON.stringify(value));
-    };
-    const locgetItem = (key) => {
-        return JSON.parse(localStorage.getItem(key));
-    };
-    useEffect(() => {
-        let locTodolist = locgetItem("Todolist");
-        if (locTodolist != null) {
-            setfinishList(locTodolist);
-        }
-    }, [finishList]);
     const addData = () => {
-        if (textInput.current.value === "") {
+        if (textInput === "") {
             return false;
         } else {
-            var templist = finishList;
-            templist.push(textInput.current.value);
-            setlist([list, templist]);
-            textInput.current.value = "";
-            locsetItem("Todolist", templist);
+            settextInput ("");
+            setlist([...list, textInput]);
+            alert(textInput);
         }
     };
-    const removeData = (key) => {
-        var templist = finishList;
-        templist.splice(key, 1)
-        setlist([list.splice(key, 1)]);
-        locsetItem("Todolist", templist);
+    const removeData = function(index) {
+        list.splice(index, 1);
+        setlist([...list]);
     };
     return (
         <div id="App">
@@ -41,24 +25,22 @@ function Todolist() {
                 </header>
                 <div className="center">
                     <div id="inpTodolist">
-                        <input className="txtTodolist" ref={textInput}/>
+                        <input className="txtTodolist" onChange={(e)=>settextInput(e.target.value)} value={textInput}/>
                     </div>
                     <button className="butAdd" onClick={addData}>Submit</button>
                 </div>
                 <ul>
                     {
-                        finishList.map((key, value) => {
-                            return (
-                                <li key={key}>
-                                    <div>
-                                        <button className="butDel"
-                                                onClick={removeData(key)}>remove
-                                        </button>
-                                        <p>{value}</p>
-                                    </div>
-                                </li>
-                            )
-                        })
+                        list.map((item,index) => 
+                            <li key={index}>
+                                <div>
+                                    <button className="butDel"
+                                            onClick={(e)=>removeData(index)}>remove
+                                    </button>
+                                    <p>{item}</p>
+                                </div>
+                            </li>
+                        )
                     }
                 </ul>
             </div>
