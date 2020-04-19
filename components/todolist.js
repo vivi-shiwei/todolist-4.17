@@ -1,82 +1,69 @@
-import React, {Component} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 
 
-class Todolist extends Component {
-    constructor(props) {
-        super(props);
-        this.textInput = React.createRef();
-        this.state={
-            list:[],
-            finishList:[]
-        };
-            }
-            locsetItem=(key, value)=>{
-                localStorage.setItem(key,JSON.stringify(value));
-            };
-            locgetItem=(key)=>{
-                return JSON.parse(localStorage.getItem(key));
-            };
-            componentDidMount() {
-                let locTodolist = this.locgetItem("Todolist");
-                if(locTodolist){
-                    this.setState({
-                        finishList:locTodolist
-            })
+function Todolist() {
+    const textInput = useRef();
+    const [list, setlist] = useState([]);
+    const [finishList, setfinishList] = useState([]);
+    const locsetItem = (key, value) => {
+        localStorage.setItem(key, JSON.stringify(value));
+    };
+    const locgetItem = (key) => {
+        return JSON.parse(localStorage.getItem(key));
+    };
+    useEffect(() => {
+        let locTodolist = locgetItem("Todolist");
+        if (locTodolist != null) {
+            setfinishList(locTodolist);
         }
-    }
-
-    addData=()=>{
-        if(this.textInput.current.value===""){
+    }, [finishList]);
+    const addData = () => {
+        if (textInput.current.value === "") {
             return false;
-        }
-        else {
-            var tempList = this.state.finishList;
-            tempList.push(this.textInput.current.value);
-            this.textInput.current.value="";
-            this.setState({
-                list:tempList
-            })
-            this.locsetItem("Todolist",tempList);
+        } else {
+            var templist = finishList;
+            templist.push(textInput.current.value);
+            setlist([list, templist]);
+            textInput.current.value = "";
+            locsetItem("Todolist", templist);
         }
     };
-    removeData=(key)=>{
-        var tempList= this.state.finishList;
-        tempList.splice(key,1);
-        this.setState({
-            list:tempList
-        })
-        this.locsetItem("Todolist",tempList)
+    const removeData = (key) => {
+        var templist = finishList;
+        templist.splice(key, 1)
+        setlist([list.splice(key, 1)]);
+        locsetItem("Todolist", templist);
     };
-
-    render() {
-        return(
-            <div id="App">
-                <div id="todolist">
-                    <header>
-                        <h1>React Todolist</h1>
-                    </header>
-                    <div className="center">
-                        <div id="inpTodolist">
-                            <input className="txtTodolist" ref={this.textInput}/>
-                        </div>
-                        <button className="butAdd" onClick={this.addData}>Submit</button>
+    return (
+        <div id="App">
+            <div id="todolist">
+                <header>
+                    <h1>React Todolist</h1>
+                </header>
+                <div className="center">
+                    <div id="inpTodolist">
+                        <input className="txtTodolist" ref={textInput}/>
                     </div>
-                    <ul>
-                        {
-                            this.state.finishList.map((value,key)=> {
-                                return(
-                                    <li key={key}>
-                                        <div>
-                                            <button className="butDel" onClick={this.removeData.bind(this,key)}>remove</button>
-                                            <p>{value}</p>
-                                        </div>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                    <button className="butAdd" onClick={addData}>Submit</button>
                 </div>
-                <style global jsx>{`
+                <ul>
+                    {
+                        finishList.map((key, value) => {
+                            return (
+                                <li key={key}>
+                                    <div>
+                                        <button className="butDel"
+                                                onClick={removeData(key)}>remove
+                                        </button>
+                                        <p>{value}</p>
+                                    </div>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+            <style global jsx>{`
                 *{
                     margin: 0;
                     padding: 0;
@@ -171,9 +158,8 @@ class Todolist extends Component {
                         border: #D2A5B4 solid 3px;
                     }
                     `}</style>
-            </div>
-        );
-    }
+        </div>
+    )
 }
 
 export default Todolist;
