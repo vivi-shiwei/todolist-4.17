@@ -132,7 +132,6 @@ function Todolist() {
                         color: #D2A5B4;
                         font-size: 16px;
                         background-color: white;
-                        /*margin-left: 0;*/
                         width: 75px;
                         height: 40px;
                         float: left;
