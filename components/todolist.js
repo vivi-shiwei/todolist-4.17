@@ -1,6 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
 
-
 function Todolist() {
     const textInput = useRef();
     const [list, setlist] = useState([]);
