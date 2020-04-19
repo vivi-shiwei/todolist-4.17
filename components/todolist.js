@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-
 function Todolist() {
     const [textInput,settextInput] = useState("");
     const [list, setlist] = useState([]);
