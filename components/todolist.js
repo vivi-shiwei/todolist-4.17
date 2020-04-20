@@ -9,7 +9,6 @@ function Todolist() {
         } else {
             settextInput ("");
             setlist([...list, textInput]);
-            alert(textInput);
         }
     };
     const removeData = function(index) {
