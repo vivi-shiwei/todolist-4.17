@@ -202,6 +202,5 @@ function Todolist() {
             </style>
         </div>
     )
-}
-
+};
 export default Todolist;
