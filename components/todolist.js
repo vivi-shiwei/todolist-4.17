@@ -13,29 +13,28 @@ function Todolist() {
             setlist([...list, textInput]);
         }
     };
-    const removeData = function(index,intem) {
-        var che = document.getElementsByClassName("che");
-        if(che[index].checked){
-            checks.splice(intem, 1);
+    const removeData = function(index,option) {
+        if(option){
+            checks.splice(index, 1);
             setCheck([...checks]);
         }
         else{
-            list.splice(intem, 1);
+            list.splice(index, 1);
             setlist([...list]);
         }
     };
-    const updatechecked = function(index,item){
+    const updatechecked = function(index,item,option){
         var che = document.getElementsByClassName("che");
-        if(che[index].checked){
-            che[index].checked=false;
-            list.splice(item, 1);
-            setlist([...list]);
-            setCheck([...checks,item]);
-        }
-        else{
-            checks.splice(item, 1);
+        if(option){
+            checks.splice(index, 1);
             setCheck([...checks]);
             setlist([...list,item]);
+        }
+        else{
+            che[index].checked=false;
+            list.splice(index, 1);
+            setlist([...list]);
+            setCheck([...checks,item]);
         }
        }
     return (
@@ -57,9 +56,9 @@ function Todolist() {
                             list.map((item,index) => 
                                 <li key={index}>
                                     <div>
-                                        <input className="che" type="checkbox" onClick={(e,b)=>updatechecked(index,item)} />
+                                        <input className="che" type="checkbox" onClick={(e,b,c)=>updatechecked(index,item,false)} />
                                         <p>{item}</p>
-                                        <button className="butDel" onClick={(e,b)=>removeData(index,index)}>
+                                        <button className="butDel" onClick={(e,b)=>removeData(index,false)}>
                                             remove
                                         </button>
                                     </div>
@@ -73,10 +72,9 @@ function Todolist() {
                             checks.map((item,index) => 
                                 <li key={index}>
                                     <div className="divChecks">
-                                        <input className="che" type="checkbox" checked="checked" onClick={(e,b)=>updatechecked(index,item)}/>
+                                        <input className="che" type="checkbox" checked="checked" onClick={(e,b,c)=>updatechecked(index,item,true)}/>
                                         <p className="pitem">{item}</p>
-                                        <button className="butDel"
-                                                onClick={(e)=>removeData(index,index)}>remove
+                                        <button className="butDel" onClick={(e,b)=>removeData(index,true)}>remove
                                         </button>
                                     </div>
                                 </li>
