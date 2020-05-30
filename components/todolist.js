@@ -1,206 +1,115 @@
-import React, {useState} from 'react';
+import React from 'react'
+import {
+    ThemeProvider,
+    CSSReset,
+    theme,
+    Box,
+    Image,
+    Text,
+    Divider,
+    FormLabel,
+    FormControl,
+    Badge,
+    Heading
+} from '@chakra-ui/core'
+const Todolist = () => (
+    <ThemeProvider theme={theme} backgroundColor='gray.100'>
+        <CSSReset />
+        <Box m='auto'>
+            <Box display='flex' mt='0' p={10} ml='15%' mr='15%' backgroundColor='gray.100'>
+                <Heading m='auto'>My name is vivi</Heading>
+                <Box display='block' width='10%'>
+                    <Image height='120px' width='90px' src='/mmexport1580997585391.jpg' />
+                </Box>
+                <Box width='90%'>
+                    <Box ml='20px'>
+                        <FormControl display='flex'>
+                            <FormLabel htmlFor='email'>姓名：</FormLabel><Text>陳薇</Text>
+                        </FormControl>
+                        <FormControl display='flex'>
+                            <FormLabel htmlFor='email'>國籍：</FormLabel><Text>中國</Text>
+                        </FormControl>
+                        <FormControl display='flex'>
+                            <FormLabel htmlFor='email'>電話：</FormLabel><Text>13411564215</Text>
+                        </FormControl>
+                        <FormControl display='flex'>
+                            <FormLabel>電郵：</FormLabel><Text>2546710985@qq.com</Text>
+                        </FormControl>
+                        <Divider borderColor='blackAlpha.500' />
+                        <FormControl>
+                            <Badge fontSize='xl' rounded='full' px='2' variantColor='teal'>教育背景</Badge>
+                            <Divider borderColor='blackAlpha.500' />
+                            <Box display='flex'>
+                                <FormLabel htmlFor='email' fontSize='lg'>在校時間：</FormLabel><Text color='gray.500'>2018.08-2020.03</Text>
+                                <FormLabel htmlFor='email' ml='10px' fontSize='lg'>學校：</FormLabel><Text color='gray.500'>南方it學院</Text>
+                                <FormLabel htmlFor='email' ml='10px' fontSize='lg'>專業：</FormLabel><Text color='gray.500'>軟件工程</Text>
+                            </Box>
+                            <FormLabel fontSize='lg'>主修課程：</FormLabel>
+                            <Text color='gray.500' mb='10px'>1)熟悉JavaScript客户端脚本技术；</Text>
+                            <Text color='gray.500' mb='10px'>2)熟悉Vue.js，BootStrap前端框架;</Text>
+                            <Text color='gray.500' mb='10px'>3)熟悉Spring，SpringMVC , Mybatis；</Text>
+                            <Text color='gray.500' mb='10px'>4)熟悉 HTML5,CSS3;</Text>
+                            <Text color='gray.500' mb='10px'>5)熟悉SQL Server，MySQL数据库系统；</Text>
+                            <Text color='gray.500' mb='10px'>6)熟悉 IndexedDB前端数据库；</Text>
+                            <Divider borderColor='blackAlpha.500' />
+                        </FormControl>
+                        <FormControl>
+                            <Badge fontSize='xl' rounded='full' px='2' variantColor='teal'>校内經歷</Badge>
+                            <Divider borderColor='blackAlpha.500' />
+                            <Box display='flex'>
+                                <FormLabel htmlFor='email' fontSize='lg' mr='30px'>2018.09-2020.2</FormLabel>
+                                <FormLabel htmlFor='email' fontSize='lg' mr='30px'>團委學生會生活部</FormLabel>
+                                <FormLabel htmlFor='email' fontSize='lg'>部員</FormLabel>
+                            </Box>
+                            <FormLabel fontSize='lg'>主修課程：</FormLabel>
+                            <Text color='gray.500' mb='10px'>⦁认真对待工作，有强烈的团结协作精神，与其它同学协调友好的团结关系，及时反映他们的意见和请求。</Text>
+                            <Text color='gray.500' mb='10px'>⦁严于律己，不断提高自己，在生活部开展三月一次的全校寝室长大会中担任两次主持人。</Text>
+                            <Text color='gray.500' mb='10px'>⦁义教：就是跟福利院的小朋友一起写字，画画，还有做游戏；</Text>
+                            <Text color='gray.500' mb='10px'>⦁献血服务志愿者：工作是发传单、照顾前来献血的志愿者，以及前来咨询的志愿者。发传单是为了让更多的人知道某个地点有献血活动，自己也要了解相关的知识；</Text>
+                            <Text color='gray.500' mb='10px'>⦁参加志愿者活动期间，获得斗门区优秀志愿者奖杯。义工时长为１５小时。</Text>
+                        </FormControl>
+                        <Divider borderColor='blackAlpha.500' />
+                        <FormControl>
+                            <Badge fontSize='xl' rounded='full' px='2' variantColor='teal'>自我評價</Badge>
+                            <Divider borderColor='blackAlpha.500' />
+                            <Text color='gray.500' mb='10px'>作为一个新时代的年轻人，当然活力是一定要有的，我是一个活泼又开朗小姑娘，容易与人相处，善于思考问题，做事认真细心，我待人诚实，没有花言巧语，讲原则，说到做到；有问题不逃避，愿意虚心向他人学习；不以自我为中心；积极进取，综合素质佳，能够吃苦耐劳。知道自己的错误，会认真去改正。</Text>
+                            <Divider borderColor='blackAlpha.500' />
+                        </FormControl>
+                        <FormControl>
+                            <Badge fontSize='xl' rounded='full' px='2' variantColor='teal'>項目經歷</Badge>
+                            <Divider borderColor='blackAlpha.500' />
+                            <Box display='flex'>
+                                <FormLabel htmlFor='email' fontSize='lg' mr='30px'>項目名稱</FormLabel><Text>圖書管理系統</Text>
+                            </Box>
+                            <Box display='flex'>
+                                <FormLabel htmlFor='email' fontSize='lg' mr='30px'>開發周期</FormLabel><Text color='gray.500'>2018-11-01至2018-11-28</Text>
+                            </Box>
+                            <Box display='flex'>
+                                <FormLabel htmlFor='email' fontSize='lg' mr='30px'>開發工具</FormLabel><Text>Microsoft Visual Studio 2017＋SQL server</Text>
+                            </Box>
 
-function Todolist() {
-    const [textInput,settextInput] = useState("");
-    const [list, setlist] = useState([]);
-    const [checks, setCheck] = useState([]);
-    const addData = () => {
-        if (textInput === "") {
-            return false;
-        } 
-        else {
-            settextInput ("");
-            setlist([...list, textInput]);
-        }
-    };
-    const removeData = function(index,option) {
-        if(option){
-            checks.splice(index, 1);
-            setCheck([...checks]);
-        }
-        else{
-            list.splice(index, 1);
-            setlist([...list]);
-        }
-    };
-    const updatechecked = function(index,item,option){
-        var che = document.getElementsByClassName("che");
-        if(option){
-            checks.splice(index, 1);
-            setCheck([...checks]);
-            setlist([...list,item]);
-        }
-        else{
-            che[index].checked=false;
-            list.splice(index, 1);
-            setlist([...list]);
-            setCheck([...checks,item]);
-        }
-       }
-    return (
-        <div id="App">
-            <div id="todolist">
-                <header>
-                    <h1>React Todolist</h1>
-                </header>
-                <div className="center">
-                    <div id="inpTodolist">
-                        <input className="txtTodolist" onChange={(e)=>settextInput(e.target.value)} value={textInput}/>
-                    </div>
-                    <button className="butAdd" onClick={addData}>Submit</button>
-                </div>
-                <section>
-                    <h2>正在进行</h2>
-                    <ul>
-                        {
-                            list.map((item,index) => 
-                                <li key={index}>
-                                    <div>
-                                        <input className="che" type="checkbox" onClick={(e,b,c)=>updatechecked(index,item,false)} />
-                                        <p>{item}</p>
-                                        <button className="butDel" onClick={(e,b)=>removeData(index,false)}>
-                                            remove
-                                        </button>
-                                    </div>
-                                </li>
-                            )
-                        }
-                    </ul>
-                    <h2>已经完成</h2>
-                    <ul>
-                        {
-                            checks.map((item,index) => 
-                                <li key={index}>
-                                    <div className="divChecks">
-                                        <input className="che" type="checkbox" checked="checked" onClick={(e,b,c)=>updatechecked(index,item,true)}/>
-                                        <p className="pitem">{item}</p>
-                                        <button className="butDel" onClick={(e,b)=>removeData(index,true)}>remove
-                                        </button>
-                                    </div>
-                                </li>
-                            )
-                        }
-                    </ul>
-                </section>
-            </div>
-            <style global jsx>{`
-                *{
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                }
-                h1{
-                    color: #0B5FA5;
-                    text-align: center;
-                    line-height: 88px;
-                }
-                h2{
-                    color: #3F8FD2;
-                }
-                header{
-                    height: 90px;
-                }
-                li{
-                    height: 60px;
-                }
-                li>div{
-                    height: 60px;
-                    margin: auto;
-                    border-bottom: #F1F1F1 solid 2px;
-                }
-                .che{
-                    float: left;
-                    margin-top: 28px;
-                    margin-left: 50px;
-                    font-size: 20px;
-                    line-height: 48px;
-                }
-                p{
-                    float:left;
-                    margin-left: 50px;
-                    color: #66AED2;
-                    font-size: 20px;
-                    line-height: 60px;
-                }
-                button{
-                    border-radius: 4px;
-                }
-                #App{
-                    margin: 0 auto;
-                    width: 800px;
-                    height: 900px;
-                    position: relative;
-                    border-top: #40C1FD solid 6px ;
-                    border-left: #40C1FD solid 6px;
-                    border-right: #40C1FD solid 6px;
-                }
-                #todolist{
-                    height: 860px;
-                    width: 660px;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    top: 0;
-                    bottom: 0;
-                    margin: auto;
-                }
-                .center{
-                    height: 40px;
-                    width: 500px;
-                    margin: auto;
-                }
-                #inpTodolist{
-                    width: 80%;
-                    height: 86%;
-                    border-bottom: 3px solid #40C1FD;
-                    border-top: 3px solid #40C1FD;
-                    float: left;
-                }
-                .txtTodolist{
-                    color: #043C6B;
-                    font-size: 20px;
-                    height: 33px;
-                    width: 300px;
-                    outline: none;
-                    border: none;
-                }
-                .divChecks{
-                    background-color: #F1F1F1;
-                }
-                .pitem{
-                    text-decoration:line-through;
-                }
-                .butAdd{
-                    color: #40C1FD;
-                    font-size: 16px;
-                    background-color: white;
-                    margin-left: 0;
-                    width: 15%;
-                    height: 100%;
-                    border: #40C1FD solid 3px;
-                    float: right;
-                }
-                section{
-                width: 500px;
-                }
-                ul{
-                    width: 450px;
-                    margin: 0 auto;
-                    margin-top: 20px;
-                }
-                .butDel{
-                    color: #D2A5B4;
-                    font-size: 16px;
-                    background-color: white;
-                    margin-top: 10px;
-                    float:right;
-                    width: 75px;
-                    height: 40px;
-                    border: #D2A5B4 solid 3px;
-                }
-            `}
-            </style>
-        </div>
-    )
-};
-export default Todolist;
+                            <Box>
+                                <FormLabel fontSize='lg'>項目介紹：</FormLabel>
+                                <Text color='gray.500' mb='10px'>随着互联网的普及，以及电子书的出现，传统的以纸质文献进行阅读的方式它自由的弊端更加明显地暴露出来：信息检索速度落后，质量较差，不符合当今快节奏的生活方式。图书馆信息管理系统是运行在WINDOWS系统平台上的多任务系统，对书籍及读者进行统一管理的系统。</Text>
+                            </Box>
+                            <Box>
+                                <FormLabel fontSize='lg'>項目功能：</FormLabel>
+                                <Text color='gray.500' mb='10px'>具体包括读者的借书、还书处理；包括增加图书信息、删除和更新图书信息，添加、更新、删除、查询借阅信息、增加读者信息、删除或更新读者信息以及查询读者信息。</Text>
+                            </Box>
+                            <Box>
+                                <FormLabel fontSize='lg'>項目心得：</FormLabel>
+                                <Text color='gray.500' mb='10px'>这次的项目设计用到了很多学到的东西，在某个方面是反映我们的所学的成果。在开发这个系统的过程中，碰到很多的问题，有些是大的，而有些是很小的问题，只是自己没有仔细的看清楚，遇到的问题以后，团队一起讨论，同学互帮互助。在解决了问题后，却是不一样的心情，很有成就感，很充实，因为在解决了问题的同时，我也学到了知识。</Text>
+                            </Box>
+                            <Box>
+                                <FormLabel fontSize='lg'>登錄界面</FormLabel>
+                                <Image src='/AO`5F5(WM5@CCXCYD)Y3HF5.png' />
+                            </Box>
+                        </FormControl>
+                        <Divider borderColor='blackAlpha.500' />
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+    </ThemeProvider>
+)
+export default Todolist
