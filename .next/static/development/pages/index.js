@@ -59,7 +59,10 @@ var Todolist = function Todolist() {
       sm: 0,
       md: '15%'
     },
-    backgroundColor: "gray.100",
+    backgroundColor: {
+      sm: 'white',
+      md: 'gray.100'
+    },
     __self: _this,
     __source: {
       fileName: _jsxFileName,

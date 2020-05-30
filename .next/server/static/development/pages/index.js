@@ -150,7 +150,10 @@ const Todolist = () => __jsx(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Theme
     sm: 0,
     md: '15%'
   },
-  backgroundColor: "gray.100",
+  backgroundColor: {
+    sm: 'white',
+    md: 'gray.100'
+  },
   __self: undefined,
   __source: {
     fileName: _jsxFileName,

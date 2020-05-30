@@ -16,7 +16,7 @@ const Todolist = () => (
     <ThemeProvider theme={theme} backgroundColor='gray.100'>
         <CSSReset />
         <Box m='auto' fontSize={["8px", "10px", "15px", "15px"]}>
-            <Box display='flex' p={{ sm: 0, md: 10 }} ml={{ sm: 0, md: '15%' }} mr={{ sm: 0, md: '15%' }} backgroundColor='gray.100'>
+            <Box display='flex' p={{ sm: 0, md: 10 }} ml={{ sm: 0, md: '15%' }} mr={{ sm: 0, md: '15%' }} backgroundColor={{ sm: 'white', md: 'gray.100' }}>
                 <Box width={{ sm: '100%', md: '90%' }} m='auto'>
                     <Box m={{ base: 1, sm: 2, md: 5 }}>
                         <Box m='auto'>
