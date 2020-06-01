@@ -238,6 +238,7 @@ const Index = () => __jsx(_components_Container__WEBPACK_IMPORTED_MODULE_3__["Co
   }
 }, __jsx(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Box"], {
   display: "flex",
+  ml: ['80px', '85px', '90px', '90px'],
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
@@ -253,7 +254,7 @@ const Index = () => __jsx(_components_Container__WEBPACK_IMPORTED_MODULE_3__["Co
   }
 }, __jsx(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Image"], {
   height: "120px",
-  width: "90px",
+  width: "93px",
   src: "/mmexport1580997585391.jpg",
   __self: undefined,
   __source: {

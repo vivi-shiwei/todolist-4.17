@@ -20,9 +20,9 @@ import { DarkModeSwitch } from '../components/DarkModeSwitch'
 const Index = () => (
     <Container>
         <Box m={{ base: 1, sm: 2, md: 5 }}>
-            <Box display='flex'>
+            <Box display='flex' ml={['80px', '85px', '90px', '90px']}>
                 <Box>
-                    <Image height='120px' width='90px' src='/mmexport1580997585391.jpg' />
+                    <Image height='120px' width='93px' src='/mmexport1580997585391.jpg' />
                 </Box>
                 <Box display='block' ml={{ base: '10px', sm: '15px', md: '20px' }}>
                     <Box display='flex' h='35px'>

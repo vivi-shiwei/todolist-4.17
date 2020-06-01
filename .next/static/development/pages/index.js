@@ -33448,6 +33448,7 @@ var Index = function Index() {
     }
   }, __jsx(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_3__["Box"], {
     display: "flex",
+    ml: ['80px', '85px', '90px', '90px'],
     __self: _this,
     __source: {
       fileName: _jsxFileName,
@@ -33463,7 +33464,7 @@ var Index = function Index() {
     }
   }, __jsx(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_3__["Image"], {
     height: "120px",
-    width: "90px",
+    width: "93px",
     src: "/mmexport1580997585391.jpg",
     __self: _this,
     __source: {
